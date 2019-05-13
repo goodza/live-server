@@ -1,1 +1,7 @@
+~
+.vscode
+.vscode-root
+.DS_Store
+gudzo
+*.map
 node_modules
