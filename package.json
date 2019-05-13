@@ -12,6 +12,8 @@
   ],
   "author": "Tapio Vierros",
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "babel-polyfill": "^6.26.0",
     "chokidar": "^2.0.4",
     "colors": "latest",
     "connect": "^3.6.6",
@@ -24,9 +26,16 @@
     "opn": "latest",
     "proxy-middleware": "latest",
     "send": "latest",
-    "serve-index": "^1.9.1"
+    "serve-index": "^1.9.1",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "babel-loader": "^8.0.6",
     "eslint": "^5.9.0",
     "jshint": "^2.9.6",
     "mocha": "^5.2.0",
@@ -35,7 +44,8 @@
   "scripts": {
     "lint": "eslint live-server.js index.js",
     "hint": "jshint live-server.js index.js",
-    "test": "mocha test --exit && npm run lint"
+    "test": "mocha test --exit && npm run lint",
+    "go": "webpack && node live-server.js"
   },
   "bin": {
     "live-server": "./live-server.js"

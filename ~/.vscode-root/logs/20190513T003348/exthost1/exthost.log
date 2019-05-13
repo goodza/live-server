@@ -1,0 +1,122 @@
+[2019-05-13 00:33:58.431] [exthost] [info] extension host started
+[2019-05-13 00:33:58.667] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-05-13 00:33:58.667] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-05-13 00:33:58.692] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-05-13 00:33:58.692] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/emmet/dist/extension
+[2019-05-13 00:33:58.775] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-05-13 00:33:58.776] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/git/dist/main
+[2019-05-13 00:33:59.243] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-05-13 00:33:59.243] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2019-05-13 00:33:59.278] [exthost] [info] ExtensionService#_doActivateExtension eamodio.gitlens {"startup":true,"activationEvent":"*"}
+[2019-05-13 00:33:59.278] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/eamodio.gitlens-9.7.3/dist/extension
+[2019-05-13 00:33:59.706] [exthost] [info] ExtensionService#_doActivateExtension Equinusocio.vsc-material-theme {"startup":true,"activationEvent":"*"}
+[2019-05-13 00:33:59.706] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/equinusocio.vsc-material-theme-2.8.2/out/src/material.theme.config
+[2019-05-13 00:33:59.739] [exthost] [info] ExtensionService#_doActivateExtension mhutchie.git-graph {"startup":true,"activationEvent":"*"}
+[2019-05-13 00:33:59.739] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/mhutchie.git-graph-1.4.6/out/extension.js
+[2019-05-13 00:33:59.784] [exthost] [info] eager extensions activated
+[2019-05-13 00:34:00.473] [exthost] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"activationEvent":"onLanguage:html"}
+[2019-05-13 00:34:00.473] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/html-language-features/client/dist/htmlMain
+[2019-05-13 00:34:05.867] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-05-13 00:34:05.867] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/configuration-editing/dist/extension
+[2019-05-13 00:34:05.956] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-05-13 00:34:05.956] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/extension-editing/dist/extension
+[2019-05-13 00:34:06.220] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-05-13 00:34:06.220] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/json-language-features/client/dist/jsonMain
+[2019-05-13 00:34:06.690] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-05-13 00:34:06.690] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/npm/dist/main
+[2019-05-13 00:34:08.758] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2019-05-13 00:34:08.758] [exthost] [info] ExtensionService#loadCommonJSModule /usr/share/code/resources/app/extensions/typescript-language-features/dist/extension
+[2019-05-13 01:13:06.227] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2019-05-13 01:13:06.235] [exthost] [error] Error: TypeScript Server Error (3.4.3)
+Debug Failure. False expression: Changes overlap
+Verbose Debug Information: {"pos":31,"end":185} and {"pos":147,"end":159}
+Error: Debug Failure. False expression: Changes overlap
+Verbose Debug Information: {"pos":31,"end":185} and {"pos":147,"end":159}
+    at _loop_10 (tsserver.js:111097:34)
+    at tsserver.js:111103:25
+    at Array.map (<anonymous>)
+    at Object.getTextChangesFromChanges (tsserver.js:111091:86)
+    at ChangeTracker.getChanges (tsserver.js:111061:45)
+    at Function.ChangeTracker.with (tsserver.js:110604:32)
+    at Object.getCodeActions (tsserver.js:113330:64)
+    at tsserver.js:111589:121
+    at Object.flatMap (tsserver.js:571:25)
+    at Object.getFixes (tsserver.js:111589:23)
+    at tsserver.js:121238:35
+    at Object.flatMap (tsserver.js:571:25)
+    at Object.getCodeFixesAtPosition (tsserver.js:121236:23)
+    at IOSession.Session.getCodeFixes (tsserver.js:130280:64)
+    at Session.handlers.ts.createMapFromTemplate._a.(anonymous function) (tsserver.js:129036:61)
+    at tsserver.js:130454:88
+    at IOSession.Session.executeWithRequestId (tsserver.js:130445:28)
+    at IOSession.Session.executeCommand (tsserver.js:130454:33)
+    at IOSession.Session.onMessage (tsserver.js:130476:35)
+    at Interface.<anonymous> (tsserver.js:131773:27)
+    at Interface.emit (events.js:182:13)
+    at Interface._onLine (readline.js:290:10)
+    at Interface._normalWrite (readline.js:433:12)
+    at Socket.ondata (readline.js:149:10)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:279:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at Pipe.onread (net.js:636:20)
+	at Function.create (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:174464)
+	at v.dispatchResponse (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:179770)
+	at v.dispatchMessage (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:178522)
+	at constructor._reader.onData.e (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:177878)
+	at u.fire (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:44:708)
+	at t.Reader.onLengthData (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:183738)
+	at Socket.t.Reader.constructor.e.on.e (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:183386)
+	at Socket.emit (events.js:182:13)
+	at addChunk (_stream_readable.js:279:12)
+	at readableAddChunk (_stream_readable.js:264:11)
+	at Socket.Readable.push (_stream_readable.js:219:10)
+	at Pipe.onread (net.js:636:20)
+[2019-05-13 15:14:35.986] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2019-05-13 15:14:35.997] [exthost] [error] Error: TypeScript Server Error (3.4.3)
+Debug Failure. False expression: Changes overlap
+Verbose Debug Information: {"pos":31,"end":298} and {"pos":139,"end":151}
+Error: Debug Failure. False expression: Changes overlap
+Verbose Debug Information: {"pos":31,"end":298} and {"pos":139,"end":151}
+    at _loop_10 (tsserver.js:111097:34)
+    at tsserver.js:111103:25
+    at Array.map (<anonymous>)
+    at Object.getTextChangesFromChanges (tsserver.js:111091:86)
+    at ChangeTracker.getChanges (tsserver.js:111061:45)
+    at Function.ChangeTracker.with (tsserver.js:110604:32)
+    at Object.getCodeActions (tsserver.js:113330:64)
+    at tsserver.js:111589:121
+    at Object.flatMap (tsserver.js:571:25)
+    at Object.getFixes (tsserver.js:111589:23)
+    at tsserver.js:121238:35
+    at Object.flatMap (tsserver.js:571:25)
+    at Object.getCodeFixesAtPosition (tsserver.js:121236:23)
+    at IOSession.Session.getCodeFixes (tsserver.js:130280:64)
+    at Session.handlers.ts.createMapFromTemplate._a.(anonymous function) (tsserver.js:129036:61)
+    at tsserver.js:130454:88
+    at IOSession.Session.executeWithRequestId (tsserver.js:130445:28)
+    at IOSession.Session.executeCommand (tsserver.js:130454:33)
+    at IOSession.Session.onMessage (tsserver.js:130476:35)
+    at Interface.<anonymous> (tsserver.js:131773:27)
+    at Interface.emit (events.js:182:13)
+    at Interface._onLine (readline.js:290:10)
+    at Interface._normalWrite (readline.js:433:12)
+    at Socket.ondata (readline.js:149:10)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:279:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at Pipe.onread (net.js:636:20)
+	at Function.create (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:174464)
+	at v.dispatchResponse (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:179770)
+	at v.dispatchMessage (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:178522)
+	at constructor._reader.onData.e (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:177878)
+	at u.fire (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:44:708)
+	at t.Reader.onLengthData (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:183738)
+	at Socket.t.Reader.constructor.e.on.e (/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension.js:1:183386)
+	at Socket.emit (events.js:182:13)
+	at addChunk (_stream_readable.js:279:12)
+	at readableAddChunk (_stream_readable.js:264:11)
+	at Socket.Readable.push (_stream_readable.js:219:10)
+	at Pipe.onread (net.js:636:20)
