@@ -5,6 +5,7 @@
             "file:///root/js/live-server"
         ],
         "files2": [
+            "file:///root/js/live-server/.gitignore",
             "file:///root/js/live-server/README.md",
             "file:///root/js/soulsphere/engine/app.js",
             "file:///root/js/soulsphere/index.html",
@@ -94,6 +95,17 @@
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
+                                        "external": "file:///root/js/live-server/.gitignore",
+                                        "path": "/root/js/live-server/.gitignore",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/js/live-server/.gitignore"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
                                         "external": "file:///root/js/live-server/README.md",
                                         "path": "/root/js/live-server/README.md",
                                         "scheme": "file"
@@ -177,17 +189,6 @@
                                     },
                                     "enabled": true,
                                     "label": "~/js/live-server/src/pureapp.js"
-                                },
-                                {
-                                    "id": "openRecentFile",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///root/js/live-server/.babelrc",
-                                        "path": "/root/js/live-server/.babelrc",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/js/live-server/.babelrc"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
