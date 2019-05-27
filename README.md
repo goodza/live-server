@@ -19,6 +19,7 @@ You need node.js and npm. You should probably install this globally.
 	yarn
 
 **Run babel and live-server**
+
 	yarn run live
 	
 
