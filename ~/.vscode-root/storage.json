@@ -5,6 +5,7 @@
             "file:///root/js/live-server"
         ],
         "files2": [
+            "file:///root/js/live-server/README.md",
             "file:///root/js/soulsphere/engine/app.js",
             "file:///root/js/soulsphere/index.html",
             "file:///root/js/live-server/.babelrc_copy",
@@ -93,6 +94,17 @@
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
+                                        "external": "file:///root/js/live-server/README.md",
+                                        "path": "/root/js/live-server/README.md",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/js/live-server/README.md"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
                                         "external": "file:///root/js/soulsphere/engine/app.js",
                                         "path": "/root/js/soulsphere/engine/app.js",
                                         "scheme": "file"
@@ -176,17 +188,6 @@
                                     },
                                     "enabled": true,
                                     "label": "~/js/live-server/.babelrc"
-                                },
-                                {
-                                    "id": "openRecentFile",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///root/js/soulsphere/pureapp.js",
-                                        "path": "/root/js/soulsphere/pureapp.js",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/js/soulsphere/pureapp.js"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -1497,7 +1498,7 @@
     },
     "theme": "vs-dark",
     "themeBackground": "#1e1e1e",
-    "pickerWorkingDir": "/root/js/soulsphere/engine",
+    "pickerWorkingDir": "/root/js/live-server",
     "windowsState": {
         "lastActiveWindow": {
             "backupPath": "/root/js/live-server/~/.vscode-root/Backups/1558279871072",
