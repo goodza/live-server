@@ -5,6 +5,20 @@
             "file:///root/js/live-server"
         ],
         "files2": [
+            "file:///root/js/soulsphere/engine/app.js",
+            "file:///root/js/soulsphere/index.html",
+            "file:///root/js/live-server/.babelrc_copy",
+            "file:///root/js/live-server/babel.config.js",
+            "file:///root/js/soulsphere/engine/render/app.js",
+            "file:///root/js/live-server/package.json",
+            "file:///root/js/live-server/dist/pureapp.js",
+            "file:///root/js/live-server/src/pureapp.js",
+            "file:///root/js/live-server/.babelrc",
+            "file:///root/js/soulsphere/pureapp.js",
+            "file:///root/js/live-server/dist/app.js",
+            "file:///root/js/live-server/dist/zero.js",
+            "file:///root/js/live-server/src/app.js",
+            "file:///root/js/live-server/%2C",
             "file:///root/.nvm/versions/node/v11.4.0/bin/live-server",
             "file:///root/js/zatelegramit/package.json",
             "file:///root/js/soulsphere/.gitignore",
@@ -54,7 +68,6 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "fsPath": "/root/js/live-server",
                                         "external": "file:///root/js/live-server",
                                         "path": "/root/js/live-server",
                                         "scheme": "file"
@@ -69,45 +82,111 @@
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///root/.nvm/versions/node/v11.4.0/bin/live-server",
-                                        "path": "/root/.nvm/versions/node/v11.4.0/bin/live-server",
+                                        "external": "file:///root/js/live-server/package.json",
+                                        "path": "/root/js/live-server/package.json",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/.nvm/versions/node/v11.4.0/bin/live-server"
+                                    "label": "~/js/live-server/package.json"
                                 },
                                 {
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///root/js/zatelegramit/package.json",
-                                        "path": "/root/js/zatelegramit/package.json",
+                                        "external": "file:///root/js/soulsphere/engine/app.js",
+                                        "path": "/root/js/soulsphere/engine/app.js",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/js/zatelegramit/package.json"
+                                    "label": "~/js/soulsphere/engine/app.js"
                                 },
                                 {
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///root/js/soulsphere/.gitignore",
-                                        "path": "/root/js/soulsphere/.gitignore",
+                                        "external": "file:///root/js/soulsphere/index.html",
+                                        "path": "/root/js/soulsphere/index.html",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/js/soulsphere/.gitignore"
+                                    "label": "~/js/soulsphere/index.html"
                                 },
                                 {
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///root/js/live-server/.browserslistrc",
-                                        "path": "/root/js/live-server/.browserslistrc",
+                                        "external": "file:///root/js/live-server/.babelrc_copy",
+                                        "path": "/root/js/live-server/.babelrc_copy",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/js/live-server/.browserslistrc"
+                                    "label": "~/js/live-server/.babelrc_copy"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///root/js/live-server/babel.config.js",
+                                        "path": "/root/js/live-server/babel.config.js",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/js/live-server/babel.config.js"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///root/js/soulsphere/engine/render/app.js",
+                                        "path": "/root/js/soulsphere/engine/render/app.js",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/js/soulsphere/engine/render/app.js"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///root/js/live-server/dist/pureapp.js",
+                                        "path": "/root/js/live-server/dist/pureapp.js",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/js/live-server/dist/pureapp.js"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///root/js/live-server/src/pureapp.js",
+                                        "path": "/root/js/live-server/src/pureapp.js",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/js/live-server/src/pureapp.js"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///root/js/live-server/.babelrc",
+                                        "path": "/root/js/live-server/.babelrc",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/js/live-server/.babelrc"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///root/js/soulsphere/pureapp.js",
+                                        "path": "/root/js/soulsphere/pureapp.js",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/js/soulsphere/pureapp.js"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -217,7 +296,8 @@
                     },
                     {
                         "id": "workbench.action.closeFolder",
-                        "label": "Close &&Folder"
+                        "label": "Close &&Folder",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.closeWindow",
@@ -1417,5 +1497,18 @@
     },
     "theme": "vs-dark",
     "themeBackground": "#1e1e1e",
-    "pickerWorkingDir": "/root/js/zatelegramit"
+    "pickerWorkingDir": "/root/js/soulsphere/engine",
+    "windowsState": {
+        "lastActiveWindow": {
+            "backupPath": "/root/js/live-server/~/.vscode-root/Backups/1558279871072",
+            "uiState": {
+                "mode": 1,
+                "x": 594,
+                "y": 52,
+                "width": 763,
+                "height": 656
+            }
+        },
+        "openedWindows": []
+    }
 }

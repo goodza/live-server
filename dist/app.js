@@ -1,34 +1,60 @@
-'use strict';
+"use strict";
 
-const buildMsg = 'caching textures + refact';
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var buildMsg = 'caching textures + refact';
 console.log('%c BUILD %c' + buildMsg, 'background: gold; color: darkgreen', 'background: green; color: white'); //Fetch USERS and cache their pics 
 
-let USERS; //init Users
+var USERS; //init Users
 
-let newFetchedPic = index => new THREE.TextureLoader().load("/userdata/pic/Frame-" + index + ".png");
+newFetchedPic = function newFetchedPic(index) {
+  return new THREE.TextureLoader().load("/userdata/pic/Frame-" + index + ".png");
+};
 
-let getUsers = new XMLHttpRequest();
+var getUsers = new XMLHttpRequest();
 
 getUsers.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     USERS = JSON.parse(this.responseText); //Cache pics for existing rows
 
-    USERS.map(i => +i.pic >= 0 ? i.fetchedPic = newFetchedPic(i.pic) : void null); //Cache for unexisting users
+    USERS.map(function (i) {
+      return +i.pic >= 0 ? i.fetchedPic = newFetchedPic(i.pic) : void null;
+    }); //Cache for unexisting users
 
-    const USERSexist = USERS.map(i => i.pic);
+    var USERSexist = USERS.map(function (i) {
+      return i.pic;
+    });
     console.time();
 
-    for (let picindex = 0; picindex <= 62; picindex++) USERSexist.indexOf(picindex) == -1 ? USERS.push({
-      //Load all 62 textures
-      name: 'id' + picindex,
-      location: 'London',
-      pic: picindex,
-      fetchedPic: newFetchedPic(picindex),
-      audio: 'https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559'
-    }) : void null;
+    for (var _picindex = 0; _picindex <= 62; _picindex++) {
+      USERSexist.indexOf(_picindex) == -1 ? USERS.push({
+        //Load all 62 textures
+        name: 'id' + _picindex,
+        location: 'London',
+        pic: _picindex,
+        fetchedPic: newFetchedPic(_picindex),
+        audio: 'https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559'
+      }) : void null;
+    }
 
     console.timeEnd();
-    USERS.sort((a, b) => a.pic - b.pic); // console.table(USERS);
+    USERS.sort(function (a, b) {
+      return a.pic - b.pic;
+    }); // console.table(USERS);
   }
 };
 
@@ -36,29 +62,31 @@ getUsers.open("GET", '/userdata/users.json', true);
 getUsers.send(); //Audio
 //Init ctx
 
-let initialResume = false;
-let ctx;
-let audioSrc;
-let analyser;
-let audio = $("#audio")[0]; // This gets the exact lenght of the stroke (.stroke) around the play icon
+var initialResume = false;
+var ctx;
+var audioSrc;
+var analyser;
+var audio = $("#audio")[0]; // This gets the exact lenght of the stroke (.stroke) around the play icon
 
-let stroke = $(".stroke")[0];
-let strokeLength = stroke.getTotalLength();
+var stroke = $(".stroke")[0];
+var strokeLength = stroke.getTotalLength();
 console.log(strokeLength); // Toggle the animation-play-state of the ".stroke" on clicking the ".playicon" -container
 
-let playIcon = $('.playicon');
-let play = $('.play');
-let pause = $('.pause');
+var playIcon = $('.playicon');
+var play = $('.play');
+var pause = $('.pause');
 
-audio.stop = () => {
+audio.stop = function () {
   audio.pause();
   audio.currentTime = 0;
 };
 
 audio.canPlay = false;
 audio.playState = "paused";
-$('audio').on('canplaythrough', () => audio.canPlay = true);
-playIcon.click(() => {
+$('audio').on('canplaythrough', function () {
+  return audio.canPlay = true;
+});
+playIcon.click(function () {
   if (audio.playState == "paused" || audio.playState == "") {
     pause.removeClass('hidden');
     play.addClass('hidden');
@@ -75,26 +103,26 @@ playIcon.click(() => {
   log(audio.playState);
 }); //
 
-let RUNNING_INDEXES = [];
-let scene = new THREE.Scene();
-let camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.01, 1000);
-let raycaster = new THREE.Raycaster();
+var RUNNING_INDEXES = [];
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.01, 1000);
+var raycaster = new THREE.Raycaster();
 raycaster.params.Points.threshold = 0.07;
-let raycasterPlanes = new THREE.Raycaster();
+var raycasterPlanes = new THREE.Raycaster();
 raycasterPlanes.params.Points.threshold = 0.0001;
-let sectsWithPlanes;
-let Info = $(".info");
-let Descript = $(".descripto");
-let DescriptName = $("#name")[0];
-let DescriptLocation = $("#location")[0];
-let MOUSE = new THREE.Vector2();
-let clock = new THREE.Clock();
-let picindex = 0,
+var sectsWithPlanes;
+Info = $(".info");
+Descript = $(".descripto");
+DescriptName = $("#name")[0];
+DescriptLocation = $("#location")[0];
+var MOUSE = new THREE.Vector2();
+var clock = new THREE.Clock();
+var picindex = 0,
     looped_picindex = false;
-let PLANE_GROUP = new THREE.Group();
+var PLANE_GROUP = new THREE.Group();
 scene.add(PLANE_GROUP);
-let windowX = window.innerWidth / 2;
-let windowY = window.innerHeight / 2;
+var windowX = window.innerWidth / 2;
+var windowY = window.innerHeight / 2;
 camera.position.set(0, 0, 9); //GLOBAL EVENTS
 
 function onWindowResize() {
@@ -103,17 +131,17 @@ function onWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-const onMouseMove = event => {
+onMouseMove = function onMouseMove(event) {
   event.preventDefault();
   MOUSE.x = event.clientX / window.innerWidth * 2 - 1;
   MOUSE.y = -(event.clientY / window.innerHeight) * 2 + 1;
   raycaster.setFromCamera(MOUSE, camera);
 };
 
-let Selected, preSelected;
-let focusPlaneName = -1; // Home view by default, no Plane clicked
+var Selected, preSelected;
+var focusPlaneName = -1; // Home view by default, no Plane clicked
 
-const onMouseClick = event => {
+onMouseClick = function onMouseClick(event) {
   if (!initialResume) {
     //Google audio policy
     initialResume = true;
@@ -122,7 +150,7 @@ const onMouseClick = event => {
     audioSrc.connect(ctx.destination);
     analyser = ctx.createAnalyser();
     audioSrc.connect(analyser);
-    ctx.resume().then(() => {
+    ctx.resume().then(function () {
       log('Context resumed successfully');
     });
   }
@@ -150,7 +178,7 @@ const onMouseClick = event => {
     Selected.camFocusMe().start(); //focus
 
     Selected.resizingChain = false;
-    Global.map((i, j) => {
+    Global.map(function (i, j) {
       i.to1.stop(), i.to0.start();
     });
     CosmoDust.to1();
@@ -160,7 +188,7 @@ const onMouseClick = event => {
     Selected && (Selected.dissolving = true, Selected.resizingChain = true); //Tweens activate
 
     camTweenOut.start();
-    Global.map((i, j) => {
+    Global.map(function (i, j) {
       i.to0.stop(), i.to1.start();
     });
     CosmoDust.to0();
@@ -173,13 +201,15 @@ const onMouseClick = event => {
 }; //GLOBAL FUNCTIONS
 
 
-const log = s => console.log(s);
+log = function log(s) {
+  return console.log(s);
+};
 
-const ConvertToWorld = index => {
+ConvertToWorld = function ConvertToWorld(index) {
   return pointsClouds.geometry.vertices[index].clone().applyMatrix4(pointsClouds.matrixWorld);
 };
 
-const createCanvasMaterial = (color, size) => {
+createCanvasMaterial = function createCanvasMaterial(color, size) {
   var matCanvas = document.createElement('canvas');
   matCanvas.width = matCanvas.height = size;
   var matContext = matCanvas.getContext('2d'); // create exture object from canvas.
@@ -198,29 +228,29 @@ const createCanvasMaterial = (color, size) => {
   return texture;
 };
 
-let camTweenOut = new TWEEN.Tween(camera.position).to({
+var camTweenOut = new TWEEN.Tween(camera.position).to({
   x: 0,
   y: 0,
   z: 9
 }, 1600).easing(TWEEN.Easing.Quadratic.InOut);
-let camTweenFocusMe;
-let renderer = new THREE.WebGLRenderer({
+var camTweenFocusMe;
+var renderer = new THREE.WebGLRenderer({
   antialias: true
 });
 renderer.setClearColor(0x13131B, 1);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement); //Dust
 
-const parameters = [[[1, 1, 1], 0.9], [[0.95, 1, 0.5], 1], [[0.90, 1, 0.5], 1.4], [[0.85, 1, 0.5], 1.1], [[1, 1, 1], 0.8]];
-const parameterCount = parameters.length;
-let DustGeometry = new THREE.Geometry();
+parameters = [[[1, 1, 1], 0.9], [[0.95, 1, 0.5], 1], [[0.90, 1, 0.5], 1.4], [[0.85, 1, 0.5], 1.1], [[1, 1, 1], 0.8]];
+parameterCount = parameters.length;
+DustGeometry = new THREE.Geometry();
 /*	NO ONE SAID ANYTHING ABOUT MATH! UGH!	*/
 
-const bg_particles_count = 1000;
+bg_particles_count = 1000;
 /* Leagues under the sea */
 //Particles
 
-for (let i = 0; i < bg_particles_count; i++) {
+for (i = 0; i < bg_particles_count; i++) {
   var vertex = new THREE.Vector3();
   vertex.x = Math.random() * 2000 - 1000;
   vertex.y = Math.random() * 2000 - 1000;
@@ -228,12 +258,12 @@ for (let i = 0; i < bg_particles_count; i++) {
   DustGeometry.vertices.push(vertex);
 }
 
-let CosmoDust = new THREE.Group();
-let DustMaterials = [];
+var CosmoDust = new THREE.Group();
+var DustMaterials = [];
 
-for (let i = 0; i < parameterCount; i++) {
-  const color = parameters[i][0];
-  const size = parameters[i][1];
+for (i = 0; i < parameterCount; i++) {
+  color = parameters[i][0];
+  size = parameters[i][1];
   DustMaterials[i] = new THREE.PointsMaterial({
     size: size,
     map: createCanvasMaterial('white', 256),
@@ -241,7 +271,7 @@ for (let i = 0; i < parameterCount; i++) {
     depthWrite: true,
     opacity: 0
   });
-  let particles = new THREE.Points(DustGeometry, DustMaterials[i]);
+  particles = new THREE.Points(DustGeometry, DustMaterials[i]);
   particles.rotation.x = Math.random() * 6;
   particles.rotation.y = Math.random() * 6;
   particles.rotation.z = Math.random() * 6;
@@ -250,26 +280,24 @@ for (let i = 0; i < parameterCount; i++) {
 
 scene.add(CosmoDust); //globus
 
-let SphereGeometry = new THREE.IcosahedronGeometry(1.97, 3);
-let SphereMaterial = new THREE.MeshBasicMaterial({
+var SphereGeometry = new THREE.IcosahedronGeometry(1.97, 3);
+var SphereMaterial = new THREE.MeshBasicMaterial({
   color: 0x13131B,
   transparent: true
 });
-let SphereMesh = new THREE.Mesh(SphereGeometry, SphereMaterial); // console.warn('mesh')
-// console.log(SphereMesh)
-//wireFrame
+var SphereMesh = new THREE.Mesh(SphereGeometry, SphereMaterial); //wireFrame
 
-let lineMat = new THREE.LineBasicMaterial({
+var lineMat = new THREE.LineBasicMaterial({
   color: 0x3C4051
 });
-let geometryWire = new THREE.IcosahedronBufferGeometry(2, 2);
-let wireframe = new THREE.WireframeGeometry(geometryWire);
-let line = new THREE.LineSegments(wireframe, lineMat);
+var geometryWire = new THREE.IcosahedronBufferGeometry(2, 2);
+var wireframe = new THREE.WireframeGeometry(geometryWire);
+var line = new THREE.LineSegments(wireframe, lineMat);
 line.material.opacity = 1;
 line.material.transparent = true; //pointClouds
 
-let pointGeo = new THREE.SphereGeometry(3.5, 17, 17);
-let pointMat = new THREE.PointsMaterial({
+var pointGeo = new THREE.SphereGeometry(3.5, 17, 17);
+var pointMat = new THREE.PointsMaterial({
   size: 0.04,
   map: createCanvasMaterial('white', 256),
   transparent: true,
@@ -280,11 +308,10 @@ pointGeo.vertices.forEach(function (vertex) {
   vertex.y += Math.random() - 0.5;
   vertex.z += Math.random() - 0.5;
 });
-console.log(pointMat);
-let pointsClouds = new THREE.Points(pointGeo, pointMat);
-let Globus = new THREE.Group();
+var pointsClouds = new THREE.Points(pointGeo, pointMat);
+var Globus = new THREE.Group();
 Globus.add(line, SphereMesh);
-let GlobusAndPoints = new THREE.Group();
+var GlobusAndPoints = new THREE.Group();
 GlobusAndPoints.add(Globus, pointsClouds); // scene.add(Globus);
 
 scene.add(GlobusAndPoints);
@@ -293,7 +320,7 @@ document.addEventListener('mouseup', onMouseClick, false); //OPACITY TWEENS
 
 CosmoDust.opacity1 = [];
 CosmoDust.opacity0 = [];
-CosmoDust.children.map(i => {
+CosmoDust.children.map(function (i) {
   CosmoDust.opacity0.push(new TWEEN.Tween(i.material).to({
     opacity: 0
   }, 2000).easing(TWEEN.Easing.Exponential.Out));
@@ -302,35 +329,48 @@ CosmoDust.children.map(i => {
   }, 2000).easing(TWEEN.Easing.Exponential.Out));
 });
 
-CosmoDust.to0 = () => {
-  CosmoDust.opacity1.map(i => i.end());
-  CosmoDust.opacity0.map(i => i.start());
+CosmoDust.to0 = function () {
+  CosmoDust.opacity1.map(function (i) {
+    return i.end();
+  });
+  CosmoDust.opacity0.map(function (i) {
+    return i.start();
+  });
 };
 
-CosmoDust.to1 = () => {
-  CosmoDust.opacity0.map(i => i.end());
-  CosmoDust.opacity1.map(i => i.start());
+CosmoDust.to1 = function () {
+  CosmoDust.opacity0.map(function (i) {
+    return i.end();
+  });
+  CosmoDust.opacity1.map(function (i) {
+    return i.start();
+  });
 };
 
-let Global = [Globus.children[0], Globus.children[1], pointsClouds];
-Global.map((i, j) => {
+var Global = [Globus.children[0], Globus.children[1], pointsClouds];
+Global.map(function (i, j) {
   i.to0 = new TWEEN.Tween(i.material).to({
     opacity: 0
-  }, 1500).easing(TWEEN.Easing.Exponential.Out).onComplete(() => i.visible = false);
+  }, 1500).easing(TWEEN.Easing.Exponential.Out).onComplete(function () {
+    return i.visible = false;
+  });
   i.to1 = new TWEEN.Tween(i.material).to({
     opacity: 1
-  }, 2000).easing(TWEEN.Easing.Quadratic.InOut).onStart(() => i.visible = true);
+  }, 2000).easing(TWEEN.Easing.Quadratic.InOut).onStart(function () {
+    return i.visible = true;
+  });
 });
 window.addEventListener('resize', onWindowResize, false); // getUserDescript =(index)=> USERS.find((e)=> e.pic == index);
 //RENDER
 
-const render = time => {
+render = function render(time) {
   TWEEN.update();
 
-  if (!audio.canPlay) {// stroke.style.animation = "dash 1.8s linear infinite paused";
-    // log('loading')
+  if (!audio.canPlay) {
+    // stroke.style.animation = "dash 1.8s linear infinite paused";
+    log('loading');
   } else {// stroke.style.animation = "";
-    }
+  }
 
   raycasterPlanes.setFromCamera(MOUSE, camera);
   sectsWithPlanes = raycasterPlanes.intersectObjects(PLANE_GROUP.children, true);
@@ -338,7 +378,7 @@ const render = time => {
 
   if (focusPlaneName == -1) {
     //Home view
-    let sectsWithPoints = raycaster.intersectObjects([pointsClouds]);
+    var sectsWithPoints = raycaster.intersectObjects([pointsClouds]);
 
     if (sectsWithPoints[0]) {
       //cursor on a point
@@ -347,7 +387,7 @@ const render = time => {
         picindex < 61 ? picindex++ : (picindex = 0, looped_picindex = true); // log(RUNNING_INDEXES);
 
         RUNNING_INDEXES.push(sectsWithPoints[0].index);
-        let newPlane = new PlaneAvatar(PLANE_GROUP, sectsWithPoints[0].index, !looped_picindex ? USERS[picindex] : Object.assign(USERS[picindex], {
+        var newPlane = new PlaneAvatar(PLANE_GROUP, sectsWithPoints[0].index, !looped_picindex ? USERS[picindex] : Object.assign(USERS[picindex], {
           name: 'id' + sectsWithPoints[0].index,
           location: 'London',
           audio: 'https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559'
@@ -356,7 +396,9 @@ const render = time => {
         newPlane.enlargeTween.start();
         PLANE_GROUP.add(newPlane);
       } else {
-        let planeToEnlarge = PLANE_GROUP.children.find(e => e.name == sectsWithPoints[0].index);
+        var planeToEnlarge = PLANE_GROUP.children.find(function (e) {
+          return e.name == sectsWithPoints[0].index;
+        });
         planeToEnlarge != undefined ? planeToEnlarge.dissolving = false : void null;
       }
     }
@@ -365,15 +407,15 @@ const render = time => {
 
     if (sectsWithPlanes[0]) {
       //Enlarge existing one not dissolved Plane
-      let planeToEnlarge = sectsWithPlanes[0].object;
-      planeToEnlarge.dissolving = false; //flag to enlarge
+      var _planeToEnlarge = sectsWithPlanes[0].object;
+      _planeToEnlarge.dissolving = false; //flag to enlarge
     }
 
     ;
   }
 
   ;
-  PLANE_GROUP.children.map((i, j) => {
+  PLANE_GROUP.children.map(function (i, j) {
     i.run(ConvertToWorld(i.name)); //change Plane position
 
     i.updateSize(); //every Plane size update
@@ -386,65 +428,71 @@ const render = time => {
 pointsClouds.geometry.verticesNeedUpdate = true;
 pointsClouds.matrixAutoUpdate = true;
 
-class PlaneAvatar extends THREE.Mesh {
-  constructor(Group, AnchorPointIndex, oINFO) {
-    super(new THREE.CircleGeometry(0.35, 64, 64), new THREE.MeshBasicMaterial({
+var PlaneAvatar =
+/*#__PURE__*/
+function (_THREE$Mesh) {
+  _inherits(PlaneAvatar, _THREE$Mesh);
+
+  function PlaneAvatar(Group, AnchorPointIndex, oINFO) {
+    var _this;
+
+    _classCallCheck(this, PlaneAvatar);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PlaneAvatar).call(this, new THREE.CircleGeometry(0.35, 64, 64), new THREE.MeshBasicMaterial({
       map: oINFO.fetchedPic
-    }));
-    this.name = AnchorPointIndex;
-    this.info = {
+    })));
+
+    _defineProperty(_assertThisInitialized(_this), "run", function (vector) {
+      return _this.position.set(vector.x, vector.y, vector.z);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "camFocusMe", function (t) {
+      return _this.camTweenFocusMe = new TWEEN.Tween(camera.position).to({
+        x: _this.position.x + 0.4,
+        y: _this.position.y,
+        z: _this.position.z + 3
+      }, 1000).easing(TWEEN.Easing.Quadratic.InOut);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "updateSize", function () {
+      return _this.dissolving ? (_this.enlargeTween.stop(), _this.dissolveTween.start()) : (_this.dissolveTween.stop(), _this.enlargeTween.start());
+    });
+
+    _this.name = AnchorPointIndex;
+    _this.info = {
       name: oINFO.name,
       location: oINFO.location,
       audio: oINFO.audio ? oINFO.audio : 'https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559'
     }; // console.table(this.info)
 
-    this.dissolving = true; //Dissolving by default
+    _this.dissolving = true; //Dissolving by default
 
-    this.resizingChain = true;
-    this.dissolveTween = new TWEEN.Tween(this.scale).to({
+    _this.resizingChain = true;
+    _this.dissolveTween = new TWEEN.Tween(_this.scale).to({
       x: 0.001,
       y: 0.001,
       z: 0.001
     }, 8000).easing(TWEEN.Easing.Quadratic.Out);
-    this.enlargeTween = new TWEEN.Tween(this.scale).to({
+    _this.enlargeTween = new TWEEN.Tween(_this.scale).to({
       x: 1,
       y: 1,
       z: 1
-    }, 650).easing(TWEEN.Easing.Quadratic.Out).onStart(() => this.material.opacity = 1).onUpdate(() => {
-      if (this.scale.z > 0.999 && this.resizingChain) {
+    }, 650).easing(TWEEN.Easing.Quadratic.Out).onStart(function () {
+      return _this.material.opacity = 1;
+    }).onUpdate(function () {
+      if (_this.scale.z > 0.999 && _this.resizingChain) {
         //About to complete
-        this.dissolving = true; //Now shall dissolve again by default
+        _this.dissolving = true; //Now shall dissolve again by default
       }
     });
-    this.camTweenFocusMe; //init variable
+    _this.camTweenFocusMe; //init variable
 
-    Group.add(this);
+    Group.add(_assertThisInitialized(_this));
+    return _this;
   }
 
-  removeFromGroup(Group) {
-    log('REMOVE <E');
-    const index = RUNNING_INDEXES.indexOf(this.name);
-    RUNNING_INDEXES.splice(index);
-    Group.remove(this);
-  }
-
-  run(vector) {
-    return this.position.set(vector.x, vector.y, vector.z + 0.01);
-  }
-
-  camFocusMe(t) {
-    return this.camTweenFocusMe = new TWEEN.Tween(camera.position).to({
-      x: this.position.x + 0.4,
-      y: this.position.y,
-      z: this.position.z + 3
-    }, 1000).easing(TWEEN.Easing.Quadratic.InOut);
-  }
-
-  updateSize() {
-    return this.dissolving ? (this.enlargeTween.stop(), this.dissolveTween.start()) : (this.dissolveTween.stop(), this.enlargeTween.start());
-  }
-
-} //rotation on mouse click and drag
+  return PlaneAvatar;
+}(THREE.Mesh); //rotation on mouse click and drag
 
 
 function groupRotation() {
@@ -498,9 +546,19 @@ function groupRotation() {
 
 groupRotation();
 
-const animate = () => {
+animate = function (_animate) {
+  function animate() {
+    return _animate.apply(this, arguments);
+  }
+
+  animate.toString = function () {
+    return _animate.toString();
+  };
+
+  return animate;
+}(function () {
   window.requestAnimationFrame(animate);
-  let time = clock.getElapsedTime();
+  var time = clock.getElapsedTime();
   render(time);
 
   if (!Selected || focusPlaneName == -1) {
@@ -510,7 +568,9 @@ const animate = () => {
     pointsClouds.rotation.y -= 0.0002;
   }
 
-  CosmoDust.children.map((i, j) => i.rotation.y = Date.now() * 0.0004);
-};
+  CosmoDust.children.map(function (i, j) {
+    return i.rotation.y = Date.now() * 0.0004;
+  });
+});
 
 window.requestAnimationFrame(animate);
