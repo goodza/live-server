@@ -39,6 +39,7 @@
     "babel-preset-es2015": "^6.24.1",
     "core-js": "3",
     "eslint": "^5.9.0",
+    "faster.js": "^1.1.0",
     "jshint": "^2.9.6",
     "mocha": "^5.2.0",
     "supertest": "^3.3.0",
@@ -52,7 +53,7 @@
     "hint": "jshint live-server.js index.js",
     "test": "mocha test --exit && npm run lint",
     "build": "webpack-dev-server --config webpack.config.js",
-    "watch:server": "./live-server.js --no-browser",
+    "watch:server": "./live-server.js ../soulsphere/ --port=80 --no-browser",
     "watch:babel": "babel ../soulsphere/engine/app.js -d ../soulsphere/engine/render/ -w",
     "live": "npm run watch:babel & npm run watch:server"
   },
