@@ -8,18 +8,13 @@ Live Server with Babel for Soulsphere
 Installation
 ------------
 
-You need node.js and yarn. You should probably install this globally.
+0. cd soulsphere dir
+1. install parcel
+2. cp babel.config.js to the dir (if not exist) 
 
 
+**Run live-server with babel** (polyapp.js is target babeled file)
 
-**Manual way** (clone to your parent dev directory, babel will sourcing ../soulsphere/engine/app.js)
+	parcel watch engine/app.js --out-file polyapp.js --out-dir engine --no-hmr & live-server --port=80 --no-browser
 
-	git clone https://github.com/gudza/live-server
-	cd live-server
-	yarn
-
-**Run babel and live-server**
-
-	yarn run live
-	
 
