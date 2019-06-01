@@ -10,9 +10,10 @@ Installation
 
 0. cd soulsphere dir
 1. cp babel.config.js from this repo (if not exist) 
-2. install parcel globally: 
-	npm install -g parcel-bundler
-
+2. install parcel globally:
+```
+npm install -g parcel-bundler
+```
 
 
 **Run live-server with babel** (polyapp.js is the target babeled file)
