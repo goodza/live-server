@@ -8,7 +8,7 @@ Live Server with Babel
 Installation
 ------------
 
-0. cd src dir
+0. install live-server from origin repo
 1. cp babel.config.js from this repo (if not exist) 
 2. install parcel globally:
 ```
